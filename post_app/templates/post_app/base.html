@@ -11,10 +11,11 @@
   <nav class="navbar fixed-top bg-dark border-bottom border-body" data-bs-theme="dark">
       <nav class="navbar bg-body-tertiary" style="width:100%">
         <div class="container-fluid" >
-            <a class="navbar-brand">Главная страница</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Главная страница</a>
+            <a class="navbar-brand" href="{% url 'add' %}">Создать новость</a>
             <form class="d-flex" role="search">
-              <input class=" form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class=" form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
         </div>
       </nav>

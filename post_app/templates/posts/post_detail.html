@@ -4,7 +4,8 @@
 <div class="text-center">
     <img src="/media/{{ post.image }}" class="img-fluid" alt="Здесь должна быть фотка {{ post.title}}">
     <hr>
-<h1>{{ post.title }}</h1>
-<p><small>{{ post.description }}</small></p>
+    <h1>{{ post.title }}</h1>
+    <p><small>{{ post.description }}</small></p>
+    <a href="{% url 'update' post_id=post.id %} ">Обновить пост</a>
 </div>
 {% endblock %}
