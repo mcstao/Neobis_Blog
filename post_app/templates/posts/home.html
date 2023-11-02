@@ -5,11 +5,11 @@
         <div class="container_card" style="display: flex; flex-wrap:wrap; justify-content:space-around;" >
     {% for post in posts %}
             <div class="card" style="width:32%; border: 1px solid; margin: 10px 0;">
-              <img src="/media/{{ post.image }}" class="card-img-top" alt="..." style="height: 300px;">
+              <img src="/media/{{ post.image }}" class="card-img-top" alt="Здесь должна быть фотка {{ post.title}}" style="height: 300px;">
               <div class="card-body">
                 <h5 class="card-title" >{{ post.title }}</h5>
                 <p class="card-text" style="font-family:ui-monospace;">{{ post.description|truncatechars:40 }}{% if post.description|length > 40 %}...{% endif %}</p>
-                <a href="#" class="btn btn-primary">Подробнее</a>
+                <a href="{% url 'post_detail' post_id=post.id %}" class="btn btn-primary">Подробнее</a>
               </div>
             </div>
     {% endfor %}
