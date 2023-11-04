@@ -10,6 +10,7 @@
                 <h5 class="card-title" >{{ post.title }}</h5>
                 <p class="card-text" style="font-family:ui-monospace;">{{ post.description|truncatechars:40 }}{% if post.description|length > 40 %}...{% endif %}</p>
                 <a href="{% url 'post_detail' post_id=post.id %}" class="btn btn-primary">Подробнее</a>
+                <p class="datetime">Время публикации : {{ post.post_date }}</p>
               </div>
             </div>
     {% endfor %}
