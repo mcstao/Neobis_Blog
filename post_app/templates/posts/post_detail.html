@@ -1,11 +1,22 @@
 {% extends 'post_app/base.html' %}
 
 {% block content %}
-<div class="text-center">
+<div style="margin-top: 5%">
+    {% if messages %}
+        {% for message in messages %}
+            {{ message|safe }}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="text-center" style="margin-top: 5%">
     <img src="/media/{{ post.image }}" class="img-fluid" alt="Здесь должна быть фотка {{ post.title}}">
     <hr>
     <h1>{{ post.title }}</h1>
     <p><small>{{ post.description }}</small></p>
-    <a href="{% url 'update' post_id=post.id %} ">Обновить пост</a>
+    <p>Время публикации : {{ post.post_date }}</p>
+    <p>Автор поста : {{ post.author }}</p>
+    <a href="{% url 'update' post_id=post.id %} ">Обновить пост </a>
+    <br>
+    <a style="color: red" href="{% url 'delete' post_id=post.id %}  "> Удалить пост</a>
 </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "post_app/base.html" %}
+<title>Удаление поста</title>
+{% block content %}
+<div class="text-center" style="margin-top: 5%">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Вы уверены?</p>
+      </div>
+      <div>
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" style="background:green">Да</button>
+            <a type="button" href="{% url 'post_detail' post_id=post.id %}" class="btn" style="background:red">Нет</a>
+          </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -2,6 +2,11 @@
 
 {% block content %}
     <div style="margin-top: 5%">
+    {% if messages %}
+        {% for message in messages %}
+            {{ message|safe }}
+        {% endfor %}
+    {% endif %}
         <div class="container_card" style="display: flex; flex-wrap:wrap; justify-content:space-around;" >
     {% for post in posts %}
             <div class="card" style="width:32%; border: 1px solid; margin: 10px 0;">
@@ -11,6 +16,7 @@
                 <p class="card-text" style="font-family:ui-monospace;">{{ post.description|truncatechars:40 }}{% if post.description|length > 40 %}...{% endif %}</p>
                 <a href="{% url 'post_detail' post_id=post.id %}" class="btn btn-primary">Подробнее</a>
                 <p class="datetime">Время публикации : {{ post.post_date }}</p>
+                <p class="card-text">Автор поста :{{ post.author }}</p>
               </div>
             </div>
     {% endfor %}

@@ -1,6 +1,7 @@
 {% extends 'post_app/base.html' %}
 
 {% block content %}
+    {% if user.is_authenticated %}
     <div style="margin-top: 5%">
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -8,4 +9,5 @@
             <input type="submit" value="Создать пост" class="btn btn-primary">
         </form>
     </div>
+    {% endif %}
 {% endblock %}

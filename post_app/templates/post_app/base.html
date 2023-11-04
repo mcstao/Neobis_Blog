@@ -13,6 +13,14 @@
         <div class="container-fluid" >
             <a class="navbar-brand" href="{% url 'home' %}">Главная страница</a>
             <a class="navbar-brand" href="{% url 'add' %}">Создать новость</a>
+            {% if user.is_authenticated %}
+                <span class="navbar-brand">
+                Пользователь: {{ user }}
+                </span>
+                <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
             <form class="d-flex" role="search">
               <input class=" form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Поиск</button>

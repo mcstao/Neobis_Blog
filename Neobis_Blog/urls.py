@@ -21,7 +21,8 @@ from Neobis_Blog import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('post_app.urls'))
+    path('', include('post_app.urls')),
+    path('users/', include('users.urls'))
 
 ]
 
