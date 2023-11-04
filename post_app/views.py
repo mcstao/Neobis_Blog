@@ -7,13 +7,16 @@ from post_app.models import Post
 
 
 def home(request):
+    search_text = request.GET.get('search_text', '')
     if request.method == "GET":
         posts = Post.objects.all().order_by('-post_date')
 
-        context = {
-            'posts': posts
-        }
-        return render(request, 'posts/home.html', context)
+        if search_text:
+            posts = posts.filter(title__icontains=search_text)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'posts/home.html', context)
 
 
 def post_detail_view(request, post_id):

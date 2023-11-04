@@ -1,7 +1,11 @@
 {% extends 'post_app/base.html' %}
 
 {% block content %}
-    <div style="margin-top: 5%">
+<form class="d-flex" role="search" style="margin-top: 5%">
+  <input name="search_text" class=" form-control me-2" type="search" placeholder="Введите текст для поиска" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Поиск</button>
+</form>
+    <div style="margin-top: 2%">
     {% if messages %}
         {% for message in messages %}
             {{ message|safe }}
